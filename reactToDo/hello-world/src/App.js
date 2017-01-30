@@ -2,8 +2,20 @@ import React, { Component } from 'react';
 import logo from './logo.svg';
 import './App.css';
 import Title from './ToDoTitle';
+import ToDoForm from './toDoForm';
 
 class App extends Component {
+  constructor (props) {
+    super(props);
+    this.state = {
+      storage: [],
+    }
+  }
+
+  addToDo(text) {
+
+  }
+
   render() {
     return (
       <div className="App">
@@ -11,6 +23,7 @@ class App extends Component {
           <img src={logo} className="App-logo" alt="logo" />
         </div>
         <Title />
+        <ToDoForm />
       </div>
     );
   }
