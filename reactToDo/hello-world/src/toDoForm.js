@@ -17,6 +17,8 @@ export default class ToDoForm extends Component {
   }
 
   handleFormSubmit (e) {
+
+    e.preventDefault();
     this.props.addToDo(this.state.input);
   }
 

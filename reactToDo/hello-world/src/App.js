@@ -1,8 +1,7 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
-import './App.css';
 import Title from './ToDoTitle';
 import ToDoForm from './toDoForm';
+import ToDoList from './toDoList';
 
 class App extends Component {
   constructor (props) {
@@ -10,20 +9,21 @@ class App extends Component {
     this.state = {
       storage: [],
     }
+    this.addToDo = this.addToDo.bind(this);
   }
 
   addToDo(text) {
-
+    console.log('TEXT GOT IN ADDTODO: ', text);
+    this.state.storage.push(text);
+    this.setState({storage: this.state.storage})
   }
 
   render() {
     return (
       <div className="App">
-        <div className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-        </div>
         <Title />
-        <ToDoForm />
+        <ToDoForm addToDo={this.addToDo} />
+        <ToDoList toDoList={this.state.storage}/>
       </div>
     );
   }
