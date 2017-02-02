@@ -14,7 +14,7 @@ module.exports = {
   },
   module: {
     loaders: [
-      {test: /\.js$/, include: __dirname + '/app', loader: "babel-loader"}
+      {test: /\.jsx$/, include: __dirname + '/app', loader: "babel-loader"}
     ]
   },
   plugins: [HTMLWebpackPluginConfig]
