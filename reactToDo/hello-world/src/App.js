@@ -13,8 +13,9 @@ class App extends Component {
   }
 
   addToDo(text) {
-    console.log('TEXT GOT IN ADDTODO: ', text);
-    this.state.storage.push(text);
+    let todo = {text, id: Date.now()}
+    console.log("todo: ", todo);
+    this.state.storage.push(todo);
     this.setState({storage: this.state.storage})
   }
 

@@ -9,7 +9,7 @@ export default class ToDoList extends Component {
     return (
       <div>
       {this.props.toDoList.map((item) => {
-        return <div>{item}</div>
+        return <div key={item.id}>{item.text}</div>
       })}
       </div>
     )
