@@ -9515,7 +9515,7 @@ var Calc = function (_Component) {
         _react2.default.createElement(
           'div',
           null,
-          'Hello!'
+          'CALCULATOR'
         ),
         _react2.default.createElement(_display2.default, { value: this.state.value }),
         _react2.default.createElement(_buttonsBox2.default, null)
@@ -21800,11 +21800,6 @@ function Display(props) {
     _react2.default.createElement(
       'div',
       null,
-      'DISPLAY HERE'
-    ),
-    _react2.default.createElement(
-      'div',
-      null,
       props.value
     )
   );
@@ -21826,13 +21821,63 @@ var _react = __webpack_require__(79);
 
 var _react2 = _interopRequireDefault(_react);
 
+var _button = __webpack_require__(182);
+
+var _button2 = _interopRequireDefault(_button);
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 function ButtonsBox(props) {
+  var renderButtons = function renderButtons(num) {
+    var numbers = [1, 2, 3, 4, 5, 6, 7, 8, 9, 0];
+    var buttons = numbers.map(function (number, i) {
+      if (number % 3 === 0) {
+        return _react2.default.createElement(
+          'span',
+          null,
+          _react2.default.createElement(_button2.default, { value: number }),
+          _react2.default.createElement('br', null)
+        );
+      } else {
+        return _react2.default.createElement(_button2.default, { value: number });
+      }
+    });
+    return _react2.default.createElement(
+      'div',
+      null,
+      buttons
+    );
+  };
   return _react2.default.createElement(
     'div',
     null,
-    'Buttons here'
+    renderButtons()
+  );
+}
+
+/***/ }),
+/* 182 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.default = Button;
+
+var _react = __webpack_require__(79);
+
+var _react2 = _interopRequireDefault(_react);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function Button(props) {
+  return _react2.default.createElement(
+    'button',
+    null,
+    props.value
   );
 }
 

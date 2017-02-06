@@ -12,7 +12,7 @@ export default class Calc extends Component {
   render() {
     return (
       <div>
-      <div>Hello!</div>
+      <div>CALCULATOR</div>
         <Display value={this.state.value}/>
         <ButtonsBox />
       </div>
