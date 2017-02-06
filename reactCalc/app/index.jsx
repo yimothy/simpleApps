@@ -1,4 +1,4 @@
-
+import React from 'react';
 import ReactDOM from 'react-dom';
 import Calc from './components/app.jsx';
 
