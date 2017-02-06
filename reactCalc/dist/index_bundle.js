@@ -9501,12 +9501,19 @@ var Calc = function (_Component) {
     var _this = _possibleConstructorReturn(this, (Calc.__proto__ || Object.getPrototypeOf(Calc)).call(this));
 
     _this.state = {
-      value: 10
+      display: 0,
+      firstNum: 0,
+      secondNum: 0,
+      onFirst: true
     };
+    _this.handleClick = _this.handleClick.bind(_this);
     return _this;
   }
 
   _createClass(Calc, [{
+    key: 'handleClick',
+    value: function handleClick(num) {}
+  }, {
     key: 'render',
     value: function render() {
       return _react2.default.createElement(
@@ -9517,8 +9524,22 @@ var Calc = function (_Component) {
           null,
           'CALCULATOR'
         ),
-        _react2.default.createElement(_display2.default, { value: this.state.value }),
-        _react2.default.createElement(_buttonsBox2.default, null)
+        _react2.default.createElement(_display2.default, { value: this.state.display }),
+        _react2.default.createElement(_buttonsBox2.default, null),
+        _react2.default.createElement(
+          'div',
+          null,
+          _react2.default.createElement(
+            'p',
+            null,
+            this.state.firstNum
+          ),
+          _react2.default.createElement(
+            'p',
+            null,
+            this.state.secondNum
+          )
+        )
       );
     }
   }]);
@@ -21828,18 +21849,18 @@ var _button2 = _interopRequireDefault(_button);
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 function ButtonsBox(props) {
-  var renderButtons = function renderButtons(num) {
+  var renderNums = function renderNums() {
     var numbers = [1, 2, 3, 4, 5, 6, 7, 8, 9, 0];
     var buttons = numbers.map(function (number, i) {
       if (number % 3 === 0) {
         return _react2.default.createElement(
           'span',
           null,
-          _react2.default.createElement(_button2.default, { value: number }),
+          _react2.default.createElement(_button2.default, { key: i, value: number }),
           _react2.default.createElement('br', null)
         );
       } else {
-        return _react2.default.createElement(_button2.default, { value: number });
+        return _react2.default.createElement(_button2.default, { key: i, value: number });
       }
     });
     return _react2.default.createElement(
@@ -21848,10 +21869,23 @@ function ButtonsBox(props) {
       buttons
     );
   };
+
+  var renderOperators = function renderOperators() {
+    var operators = ['+', '-', '*', '/', '='];
+    return _react2.default.createElement(
+      'div',
+      null,
+      operators.map(function (op, i) {
+        return _react2.default.createElement(_button2.default, { key: i, value: op });
+      })
+    );
+  };
+
   return _react2.default.createElement(
     'div',
     null,
-    renderButtons()
+    renderNums(),
+    renderOperators()
   );
 }
 

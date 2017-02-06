@@ -6,15 +6,27 @@ export default class Calc extends Component {
   constructor () {
     super();
     this.state = {
-      value: 10,
+      display: 0,
+      firstNum: 0,
+      secondNum: 0,
+      onFirst: true,
     }
+    this.handleClick = this.handleClick.bind(this);
   }
+
+  handleClick(num) {
+
+  }
+
   render() {
     return (
       <div>
       <div>CALCULATOR</div>
-        <Display value={this.state.value}/>
+        <Display value={this.state.display}/>
         <ButtonsBox />
+        <div>
+          <p>{this.state.firstNum}</p><p>{this.state.secondNum}</p>
+        </div>
       </div>
     )
   }
