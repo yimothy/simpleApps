@@ -1,7 +1,10 @@
 import React, {Component} from 'react';
 
-function Display(props) {
+export default function Display(props) {
   return (
-    <input>{this.props.value}</input>
+    <div>
+      <div>DISPLAY HERE</div>
+      <div>{props.value}</div>
+    </div>
   )
 }

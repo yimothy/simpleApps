@@ -9476,6 +9476,10 @@ var _react = __webpack_require__(79);
 
 var _react2 = _interopRequireDefault(_react);
 
+var _display = __webpack_require__(180);
+
+var _display2 = _interopRequireDefault(_display);
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -9490,7 +9494,12 @@ var Calc = function (_Component) {
   function Calc() {
     _classCallCheck(this, Calc);
 
-    return _possibleConstructorReturn(this, (Calc.__proto__ || Object.getPrototypeOf(Calc)).apply(this, arguments));
+    var _this = _possibleConstructorReturn(this, (Calc.__proto__ || Object.getPrototypeOf(Calc)).call(this));
+
+    _this.state = {
+      value: 10
+    };
+    return _this;
   }
 
   _createClass(Calc, [{
@@ -9499,7 +9508,12 @@ var Calc = function (_Component) {
       return _react2.default.createElement(
         'div',
         null,
-        'Hello!'
+        _react2.default.createElement(
+          'div',
+          null,
+          'Hello!'
+        ),
+        _react2.default.createElement(_display2.default, { value: this.state.value })
       );
     }
   }]);
@@ -21755,6 +21769,41 @@ module.exports = traverseAllChildren;
 
 module.exports = __webpack_require__(80);
 
+
+/***/ }),
+/* 180 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.default = Display;
+
+var _react = __webpack_require__(79);
+
+var _react2 = _interopRequireDefault(_react);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function Display(props) {
+  return _react2.default.createElement(
+    'div',
+    null,
+    _react2.default.createElement(
+      'div',
+      null,
+      'DISPLAY HERE'
+    ),
+    _react2.default.createElement(
+      'div',
+      null,
+      props.value
+    )
+  );
+}
 
 /***/ })
 /******/ ]);
