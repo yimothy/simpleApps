@@ -9514,6 +9514,7 @@ var Calc = function (_Component) {
     key: 'handleClick',
     value: function handleClick(num) {
       if (this.state.onFirst) {
+        console.log('CLICKED: ', num);
         var firstNum = this.state.firstNum + num;
         this.setState({ firstNum: firstNum });
       }
@@ -9521,8 +9522,6 @@ var Calc = function (_Component) {
   }, {
     key: 'render',
     value: function render() {
-      var _this2 = this;
-
       return _react2.default.createElement(
         'div',
         null,
@@ -9532,9 +9531,7 @@ var Calc = function (_Component) {
           'CALCULATOR'
         ),
         _react2.default.createElement(_display2.default, { value: this.state.display }),
-        _react2.default.createElement(_buttonsBox2.default, { onClick: function onClick() {
-            _this2.handleClick;
-          } }),
+        _react2.default.createElement(_buttonsBox2.default, { onClick: this.handleClick }),
         _react2.default.createElement(
           'div',
           null,
@@ -21925,7 +21922,9 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 function Button(props) {
   return _react2.default.createElement(
     'button',
-    null,
+    { onClick: function onClick() {
+        props.onClick();
+      } },
     props.value
   );
 }
