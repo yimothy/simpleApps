@@ -9514,7 +9514,6 @@ var Calc = function (_Component) {
     key: 'handleClick',
     value: function handleClick(num) {
       if (this.state.onFirst) {
-        console.log('CLICKED: ', num);
         var firstNum = this.state.firstNum + num;
         this.setState({ firstNum: firstNum });
       }

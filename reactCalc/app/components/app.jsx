@@ -16,7 +16,6 @@ export default class Calc extends Component {
 
   handleClick(num) {
     if(this.state.onFirst) {
-      console.log('CLICKED: ', num);
       let firstNum = this.state.firstNum + num;
       this.setState({firstNum: firstNum});
     }
