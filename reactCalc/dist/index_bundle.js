@@ -9480,6 +9480,10 @@ var _display = __webpack_require__(180);
 
 var _display2 = _interopRequireDefault(_display);
 
+var _buttonsBox = __webpack_require__(181);
+
+var _buttonsBox2 = _interopRequireDefault(_buttonsBox);
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -9513,7 +9517,8 @@ var Calc = function (_Component) {
           null,
           'Hello!'
         ),
-        _react2.default.createElement(_display2.default, { value: this.state.value })
+        _react2.default.createElement(_display2.default, { value: this.state.value }),
+        _react2.default.createElement(_buttonsBox2.default, null)
       );
     }
   }]);
@@ -21802,6 +21807,32 @@ function Display(props) {
       null,
       props.value
     )
+  );
+}
+
+/***/ }),
+/* 181 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.default = ButtonsBox;
+
+var _react = __webpack_require__(79);
+
+var _react2 = _interopRequireDefault(_react);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function ButtonsBox(props) {
+  return _react2.default.createElement(
+    'div',
+    null,
+    'Buttons here'
   );
 }
 
