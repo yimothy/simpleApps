@@ -7,13 +7,13 @@ export default function ButtonsBox(props) {
     let buttons = numbers.map((number, i) => {
       if(number % 3 === 0) {
         return (
-          <span>
-            <Button key={i} value={number}/><br></br>
+          <span key={i} >
+            <Button onClick={()=> {props.onClick(number)}} value={number}/><br></br>
           </span>
         )
       }
       else {
-        return <Button key={i} value={number}/>
+        return <Button key={i} onClick={()=>{props.onClick(number)}} value={number}/>
       }
     })
     return(
@@ -28,7 +28,7 @@ export default function ButtonsBox(props) {
     return (
       <div>
         {operators.map((op, i) => {
-          return <Button key={i} value={op} />
+          return <Button key={i} onClick={()=>{props.onClick(op)}} value={op} />
         })}
       </div>
     )

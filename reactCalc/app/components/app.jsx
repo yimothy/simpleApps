@@ -7,15 +7,18 @@ export default class Calc extends Component {
     super();
     this.state = {
       display: 0,
-      firstNum: 0,
-      secondNum: 0,
+      firstNum: '0',
+      secondNum: '0',
       onFirst: true,
     }
     this.handleClick = this.handleClick.bind(this);
   }
 
   handleClick(num) {
-
+    if(this.state.onFirst ) {
+      let firstNum = this.state.firstNum + num;
+      this.setState({firstNum: firstNum});
+    }
   }
 
   render() {
@@ -23,7 +26,7 @@ export default class Calc extends Component {
       <div>
       <div>CALCULATOR</div>
         <Display value={this.state.display}/>
-        <ButtonsBox />
+        <ButtonsBox onClick={()=>{this.handleClick}}/>
         <div>
           <p>{this.state.firstNum}</p><p>{this.state.secondNum}</p>
         </div>

@@ -9502,8 +9502,8 @@ var Calc = function (_Component) {
 
     _this.state = {
       display: 0,
-      firstNum: 0,
-      secondNum: 0,
+      firstNum: '0',
+      secondNum: '0',
       onFirst: true
     };
     _this.handleClick = _this.handleClick.bind(_this);
@@ -9512,10 +9512,17 @@ var Calc = function (_Component) {
 
   _createClass(Calc, [{
     key: 'handleClick',
-    value: function handleClick(num) {}
+    value: function handleClick(num) {
+      if (this.state.onFirst) {
+        var firstNum = this.state.firstNum + num;
+        this.setState({ firstNum: firstNum });
+      }
+    }
   }, {
     key: 'render',
     value: function render() {
+      var _this2 = this;
+
       return _react2.default.createElement(
         'div',
         null,
@@ -9525,7 +9532,9 @@ var Calc = function (_Component) {
           'CALCULATOR'
         ),
         _react2.default.createElement(_display2.default, { value: this.state.display }),
-        _react2.default.createElement(_buttonsBox2.default, null),
+        _react2.default.createElement(_buttonsBox2.default, { onClick: function onClick() {
+            _this2.handleClick;
+          } }),
         _react2.default.createElement(
           'div',
           null,
@@ -21855,12 +21864,16 @@ function ButtonsBox(props) {
       if (number % 3 === 0) {
         return _react2.default.createElement(
           'span',
-          null,
-          _react2.default.createElement(_button2.default, { key: i, value: number }),
+          { key: i },
+          _react2.default.createElement(_button2.default, { onClick: function onClick() {
+              props.onClick(number);
+            }, value: number }),
           _react2.default.createElement('br', null)
         );
       } else {
-        return _react2.default.createElement(_button2.default, { key: i, value: number });
+        return _react2.default.createElement(_button2.default, { key: i, onClick: function onClick() {
+            props.onClick(number);
+          }, value: number });
       }
     });
     return _react2.default.createElement(
@@ -21876,7 +21889,9 @@ function ButtonsBox(props) {
       'div',
       null,
       operators.map(function (op, i) {
-        return _react2.default.createElement(_button2.default, { key: i, value: op });
+        return _react2.default.createElement(_button2.default, { key: i, onClick: function onClick() {
+            props.onClick(op);
+          }, value: op });
       })
     );
   };
