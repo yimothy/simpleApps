@@ -9502,8 +9502,8 @@ var Calc = function (_Component) {
 
     _this.state = {
       display: 0,
-      firstNum: '0',
-      secondNum: '0',
+      firstNum: '',
+      secondNum: '',
       onFirst: true,
       operator: null
     };
@@ -9517,7 +9517,7 @@ var Calc = function (_Component) {
       if (num === '+' || num === '-' || num === '*' || num === '/') {
         this.state.operator = num;
         this.state.onFirst = false;
-      } else if (this.state.onFirst) {
+      } else if (num === '=') {} else if (this.state.onFirst) {
         var firstNum = this.state.firstNum + num;
         this.setState({ firstNum: firstNum });
       } else {

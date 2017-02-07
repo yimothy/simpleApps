@@ -7,8 +7,8 @@ export default class Calc extends Component {
     super();
     this.state = {
       display: 0,
-      firstNum: '0',
-      secondNum: '0',
+      firstNum: '',
+      secondNum: '',
       onFirst: true,
       operator: null,
     }
@@ -23,6 +23,9 @@ export default class Calc extends Component {
          this.state.operator = num;
          this.state.onFirst = false;
        }
+    else if(num === '=') {
+
+    }
     else if(this.state.onFirst) {
       let firstNum = this.state.firstNum + num;
       this.setState({firstNum});
