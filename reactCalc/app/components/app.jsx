@@ -10,15 +10,28 @@ export default class Calc extends Component {
       firstNum: '0',
       secondNum: '0',
       onFirst: true,
+      operator: null,
     }
     this.handleClick = this.handleClick.bind(this);
   }
 
   handleClick(num) {
-    if(this.state.onFirst) {
+    if(num === '+' ||
+       num === '-' ||
+       num === '*' ||
+       num === '/') {
+         this.state.operator = num;
+         this.state.onFirst = false;
+       }
+    else if(this.state.onFirst) {
       let firstNum = this.state.firstNum + num;
-      this.setState({firstNum: firstNum});
+      this.setState({firstNum});
     }
+    else {
+      let secondNum = this.state.secondNum + num;
+      this.setState({secondNum});
+    }
+
   }
 
   render() {

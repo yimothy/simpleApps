@@ -9504,7 +9504,8 @@ var Calc = function (_Component) {
       display: 0,
       firstNum: '0',
       secondNum: '0',
-      onFirst: true
+      onFirst: true,
+      operator: null
     };
     _this.handleClick = _this.handleClick.bind(_this);
     return _this;
@@ -9513,9 +9514,15 @@ var Calc = function (_Component) {
   _createClass(Calc, [{
     key: 'handleClick',
     value: function handleClick(num) {
-      if (this.state.onFirst) {
+      if (num === '+' || num === '-' || num === '*' || num === '/') {
+        this.state.operator = num;
+        this.state.onFirst = false;
+      } else if (this.state.onFirst) {
         var firstNum = this.state.firstNum + num;
         this.setState({ firstNum: firstNum });
+      } else {
+        var secondNum = this.state.secondNum + num;
+        this.setState({ secondNum: secondNum });
       }
     }
   }, {
