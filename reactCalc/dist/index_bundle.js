@@ -9512,12 +9512,20 @@ var Calc = function (_Component) {
   }
 
   _createClass(Calc, [{
+    key: 'handleEqual',
+    value: function handleEqual(operator) {
+      if (operator === '+') return parseInt(this.state.firstNum) + parseInt(this.state.secondNum);else if (operator === '-') return parseInt(this.state.firstNum) - parseInt(this.state.secondNum);else if (operator === '*') return parseInt(this.state.firstNum) * parseInt(this.state.secondNum);else if (operator === '/') return parseInt(this.state.firstNum) / parseInt(this.state.secondNum);
+    }
+  }, {
     key: 'handleClick',
     value: function handleClick(num) {
       if (num === '+' || num === '-' || num === '*' || num === '/') {
         this.state.operator = num;
         this.state.onFirst = false;
-      } else if (num === '=') {} else if (this.state.onFirst) {
+      } else if (num === '=') {
+        this.setState({ display: this.handleEqual(this.state.operator) });
+        this.state.onFirst = false;
+      } else if (this.state.onFirst) {
         var firstNum = this.state.firstNum + num;
         this.setState({ firstNum: firstNum });
       } else {

@@ -14,7 +14,16 @@ export default class Calc extends Component {
     }
     this.handleClick = this.handleClick.bind(this);
   }
-
+  handleEqual(operator) {
+    if(operator === '+')
+      return parseInt(this.state.firstNum) + parseInt(this.state.secondNum);
+    else if(operator === '-')
+      return parseInt(this.state.firstNum) - parseInt(this.state.secondNum);
+    else if(operator === '*')
+      return parseInt(this.state.firstNum) * parseInt(this.state.secondNum);
+    else if(operator === '/')
+      return parseInt(this.state.firstNum) / parseInt(this.state.secondNum);
+  }
   handleClick(num) {
     if(num === '+' ||
        num === '-' ||
@@ -24,7 +33,8 @@ export default class Calc extends Component {
          this.state.onFirst = false;
        }
     else if(num === '=') {
-
+      this.setState({display: this.handleEqual(this.state.operator)})
+      this.state.onFirst = false;
     }
     else if(this.state.onFirst) {
       let firstNum = this.state.firstNum + num;
