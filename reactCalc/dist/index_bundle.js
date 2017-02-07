@@ -9520,11 +9520,10 @@ var Calc = function (_Component) {
     key: 'handleClick',
     value: function handleClick(num) {
       if (num === '+' || num === '-' || num === '*' || num === '/') {
-        this.state.operator = num;
-        this.state.onFirst = false;
+        this.setState({ operator: num, onFirst: false });
       } else if (num === '=') {
         this.setState({ display: this.handleEqual(this.state.operator) });
-        this.state.onFirst = false;
+        this.setState({ firstNum: '', secondNum: '', onFirst: true });
       } else if (this.state.onFirst) {
         var firstNum = this.state.firstNum + num;
         this.setState({ firstNum: firstNum });

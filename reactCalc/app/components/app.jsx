@@ -29,12 +29,11 @@ export default class Calc extends Component {
        num === '-' ||
        num === '*' ||
        num === '/') {
-         this.state.operator = num;
-         this.state.onFirst = false;
+         this.setState({operator: num, onFirst: false});
        }
     else if(num === '=') {
       this.setState({display: this.handleEqual(this.state.operator)})
-      this.state.onFirst = false;
+      this.setState({firstNum: '', secondNum: '', onFirst: true})
     }
     else if(this.state.onFirst) {
       let firstNum = this.state.firstNum + num;
